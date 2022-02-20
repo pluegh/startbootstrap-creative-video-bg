@@ -6,27 +6,42 @@ header.masthead {
     padding-top: 10rem;
     padding-bottom: calc(10rem - #{$navbar-height});
 
-    // replace the masthead.jpg image in the /assets/img directory to change the image
-    // if the image name change, make sure to update the url path below!
+    // The background here overlays the video
 
-    background: linear-gradient(to bottom,
-        #{fade-out($brown, 0.2)} 0%,
-        #{fade-out($brown, 0.2)} 100%),
-    url("../assets/img/bg-masthead.jpg");
-
+    background: linear-gradient(to bottom, #{fade-out($brown, 0.8)} 20%, #{fade-out($brown, 0.5)} 100%);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     h1 {
         font-size: 2.25rem;
     }
 
+    .videobg {
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .content {
+        z-index: 1;
+    }
+
     @include media-breakpoint-up(lg) {
         height: 100vh;
         min-height: 40rem;
-        padding-top: $navbar-height;
+        padding-top: 0;
         padding-bottom: 0;
 
         p {
